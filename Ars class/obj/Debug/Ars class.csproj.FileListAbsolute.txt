@@ -1,0 +1,6 @@
+C:\Users\sdg.internee1\source\repos\ARS\Ars class\bin\Debug\Ars class.dll
+C:\Users\sdg.internee1\source\repos\ARS\Ars class\bin\Debug\Ars class.pdb
+C:\Users\sdg.internee1\source\repos\ARS\Ars class\obj\Debug\Ars class.csproj.AssemblyReference.cache
+C:\Users\sdg.internee1\source\repos\ARS\Ars class\obj\Debug\Ars class.csproj.CoreCompileInputs.cache
+C:\Users\sdg.internee1\source\repos\ARS\Ars class\obj\Debug\Ars class.dll
+C:\Users\sdg.internee1\source\repos\ARS\Ars class\obj\Debug\Ars class.pdb

@@ -1,0 +1,71 @@
+﻿@model ARS.Model.Login
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<!-- Header Start -->
+<div class="container-fluid page-header">
+    <!-- Header content -->
+</div>
+<!-- Header End -->
+<!-- Contact Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mb-3 pb-3">
+            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Login</h6>
+            <br>
+            <br>
+            <h1>Login Here</h1>
+        </div>
+      
+        <div id="loginFormContainer">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form bg-white" style="padding: 30px;">
+
+                        @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { id = "loginForm" }))
+                        {
+
+                            @Html.AntiForgeryToken()
+                            <div id="success"></div>
+                            <div class="form-row">
+                                <div class="control-group col-sm-6">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control p-4", Type = "email", id = "email", placeholder = "Email" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "help-block text-danger" })
+                                    @Html.ValidationMessage("CustomError")
+                                </div>
+                                <div class="control-group col-sm-6">
+                                    @Html.TextBoxFor(m => m.Password, new { @class = "form-control p-4", Type = "password", id = "password", placeholder = "Password", })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "help-block text-danger" })
+                                    @Html.ValidationMessage("CustomError")
+
+                                </div>
+                            </div>
+                            <br />
+                            <div class="text-center">
+                                <button class="btn btn-primary py-3 px-4" type="submit">Login</button>
+                            </div>
+
+                        }
+                    </div>
+
+                    <!--Code To Show Popup Or Modal -->
+                    @if (TempData["IsLoginSuccessful"] != null && (bool)TempData["IsLoginSuccessful"])
+                    {
+                        <script>
+
+                            $(document).ready(function () {
+
+                                alert("Login successful");
+                            });
+                        </script>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+

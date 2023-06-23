@@ -1,0 +1,535 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ARSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdminUserLogin">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DOB" Type="date" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MobileNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="AirlineRoute">
+    <Key>
+      <PropertyRef Name="RouteId" />
+    </Key>
+    <Property Name="RouteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartureAirportId" Type="int" Nullable="false" />
+    <Property Name="DepartureTime" Type="datetime" Nullable="false" />
+    <Property Name="ArrivalAirportId" Type="int" Nullable="false" />
+    <Property Name="ArrivalTime" Type="datetime" Nullable="false" />
+    <Property Name="DistanceInKm" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PlaneId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AirlinesData">
+    <Key>
+      <PropertyRef Name="AirlineId" />
+    </Key>
+    <Property Name="AirlineId" Type="int" Nullable="false" />
+    <Property Name="AirlineName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IATA" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="ICAO" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OfficialEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="OfficialNo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Airport">
+    <Key>
+      <PropertyRef Name="AirportId" />
+    </Key>
+    <Property Name="AirportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AirportName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CityId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bookings">
+    <Key>
+      <PropertyRef Name="BookingId" />
+    </Key>
+    <Property Name="BookingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlaneId" Type="int" Nullable="false" />
+    <Property Name="OriginId" Type="int" Nullable="false" />
+    <Property Name="DestinatinId" Type="int" Nullable="false" />
+    <Property Name="NoOfPassengers" Type="int" Nullable="false" />
+    <Property Name="PassengerId" Type="int" Nullable="false" />
+    <Property Name="DepartureDate" Type="date" Nullable="false" />
+    <Property Name="ReturnDate" Type="date" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CheckInOptions">
+    <Key>
+      <PropertyRef Name="CheckInOptionId" />
+    </Key>
+    <Property Name="CheckInOptionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OptionName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="OptionCode" Type="int" Nullable="false" />
+    <Property Name="OptionAvailability" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="OptionFee" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CityName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CountryId" Type="int" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fleet">
+    <Key>
+      <PropertyRef Name="FleetId" />
+    </Key>
+    <Property Name="FleetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AirlineId" Type="int" Nullable="false" />
+    <Property Name="FleetSize" Type="int" Nullable="false" />
+    <Property Name="Pilots" Type="int" Nullable="false" />
+    <Property Name="CabinCrew" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FlightSchedule">
+    <Key>
+      <PropertyRef Name="FlightScheduleId" />
+    </Key>
+    <Property Name="FlightScheduleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlaneId" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="ArrivalAirportId" Type="int" Nullable="false" />
+    <Property Name="DepartureAirportId" Type="int" Nullable="false" />
+    <Property Name="DateTiming" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FlightStatus">
+    <Key>
+      <PropertyRef Name="FlightStatusID" />
+    </Key>
+    <Property Name="FlightStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlaneId" Type="int" Nullable="false" />
+    <Property Name="DepartureAirportId" Type="int" Nullable="false" />
+    <Property Name="ArrivalAirportId" Type="int" Nullable="false" />
+    <Property Name="ScheduledDepartureTime" Type="datetime" Nullable="false" />
+    <Property Name="ScheduledArrivalTime" Type="datetime" Nullable="false" />
+    <Property Name="ActualDepartureTime" Type="datetime" Nullable="false" />
+    <Property Name="ActualArrivalTime" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="GateNo" Type="int" Nullable="false" />
+    <Property Name="Terminal" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BaggageAllowance" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CheckInOptionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Passenger">
+    <Key>
+      <PropertyRef Name="PassengerId" />
+    </Key>
+    <Property Name="PassengerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="CNIC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MobileNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProfilePicture" Type="image" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="PaymentMethodId" />
+    </Key>
+    <Property Name="PaymentMethodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentMethod" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaymentType">
+    <Key>
+      <PropertyRef Name="PaymentTypeId" />
+    </Key>
+    <Property Name="PaymentTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentType" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Planes">
+    <Key>
+      <PropertyRef Name="PlaneId" />
+    </Key>
+    <Property Name="PlaneId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlaneName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="AirlineId" Type="int" Nullable="false" />
+    <Property Name="PlaneTypeId" Type="int" Nullable="false" />
+    <Property Name="PlaneRegistrationNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CurrentStatus" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="PlaneType">
+    <Key>
+      <PropertyRef Name="PlaneTypeId" />
+    </Key>
+    <Property Name="PlaneTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlaneType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Manufacturer" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaximumCargo" Type="int" Nullable="false" />
+    <Property Name="MaximumSeats" Type="int" Nullable="false" />
+    <Property Name="Range" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EngineType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SafetyFeatures" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Certification" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RefundStatus">
+    <Key>
+      <PropertyRef Name="RefundStatusId" />
+    </Key>
+    <Property Name="RefundStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RefundStatus" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SafetyRating">
+    <Key>
+      <PropertyRef Name="SafetyId" />
+    </Key>
+    <Property Name="SafetyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AirlineId" Type="int" Nullable="false" />
+    <Property Name="SafetyRating" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IncidentCount" Type="int" Nullable="false" />
+    <Property Name="Fatalities" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="TicketId" />
+    </Key>
+    <Property Name="TicketId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PassengerId" Type="int" Nullable="false" />
+    <Property Name="TicketTypeId" Type="int" Nullable="false" />
+    <Property Name="SeatNo" Type="int" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="BookingDate" Type="date" Nullable="false" />
+    <Property Name="PaymentTypeId" Type="int" Nullable="false" />
+    <Property Name="PaymentMethodId" Type="int" Nullable="false" />
+    <Property Name="OrderTotal" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DiscountCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RefundStatusId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TicketType">
+    <Key>
+      <PropertyRef Name="TicketTypeId" />
+    </Key>
+    <Property Name="TicketTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TicketType" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AirlinesData_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="AirlinesData" Type="Self.AirlinesData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="AirlinesData">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Airport_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="Airport" Type="Self.Airport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Airport">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bookings_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="DestinatinId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bookings_City1">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="OriginId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bookings_Passenger">
+    <End Role="Passenger" Type="Self.Passenger" Multiplicity="1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passenger">
+        <PropertyRef Name="PassengerId" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="PassengerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fleet_AirlinesData">
+    <End Role="AirlinesData" Type="Self.AirlinesData" Multiplicity="1" />
+    <End Role="Fleet" Type="Self.Fleet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AirlinesData">
+        <PropertyRef Name="AirlineId" />
+      </Principal>
+      <Dependent Role="Fleet">
+        <PropertyRef Name="AirlineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FlightSchedule_Airport">
+    <End Role="Airport" Type="Self.Airport" Multiplicity="1" />
+    <End Role="FlightSchedule" Type="Self.FlightSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Airport">
+        <PropertyRef Name="AirportId" />
+      </Principal>
+      <Dependent Role="FlightSchedule">
+        <PropertyRef Name="ArrivalAirportId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FlightSchedule_Airport1">
+    <End Role="Airport" Type="Self.Airport" Multiplicity="1" />
+    <End Role="FlightSchedule" Type="Self.FlightSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Airport">
+        <PropertyRef Name="AirportId" />
+      </Principal>
+      <Dependent Role="FlightSchedule">
+        <PropertyRef Name="DepartureAirportId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FlightSchedule_FlightSchedule">
+    <End Role="FlightSchedule" Type="Self.FlightSchedule" Multiplicity="1" />
+    <End Role="FlightSchedule1" Type="Self.FlightSchedule" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="FlightSchedule">
+        <PropertyRef Name="FlightScheduleId" />
+      </Principal>
+      <Dependent Role="FlightSchedule1">
+        <PropertyRef Name="FlightScheduleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FlightStatus_CheckInOptions">
+    <End Role="CheckInOptions" Type="Self.CheckInOptions" Multiplicity="1" />
+    <End Role="FlightStatus" Type="Self.FlightStatus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckInOptions">
+        <PropertyRef Name="CheckInOptionId" />
+      </Principal>
+      <Dependent Role="FlightStatus">
+        <PropertyRef Name="CheckInOptionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket_Passenger">
+    <End Role="Passenger" Type="Self.Passenger" Multiplicity="1" />
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passenger">
+        <PropertyRef Name="PassengerId" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="PassengerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket_PaymentMethod">
+    <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="PaymentMethodId" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="PaymentMethodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket_PaymentType">
+    <End Role="PaymentType" Type="Self.PaymentType" Multiplicity="1" />
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentType">
+        <PropertyRef Name="PaymentTypeId" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="PaymentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket_RefundStatus">
+    <End Role="RefundStatus" Type="Self.RefundStatus" Multiplicity="1" />
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefundStatus">
+        <PropertyRef Name="RefundStatusId" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="RefundStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket_TicketType">
+    <End Role="TicketType" Type="Self.TicketType" Multiplicity="1" />
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TicketType">
+        <PropertyRef Name="TicketTypeId" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="TicketTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="ARSModelStoreContainer">
+    <EntitySet Name="AdminUserLogin" EntityType="Self.AdminUserLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AirlineRoute" EntityType="Self.AirlineRoute" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AirlinesData" EntityType="Self.AirlinesData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Airport" EntityType="Self.Airport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CheckInOptions" EntityType="Self.CheckInOptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fleet" EntityType="Self.Fleet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FlightSchedule" EntityType="Self.FlightSchedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FlightStatus" EntityType="Self.FlightStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Passenger" EntityType="Self.Passenger" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentMethod" EntityType="Self.PaymentMethod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentType" EntityType="Self.PaymentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Planes" EntityType="Self.Planes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlaneType" EntityType="Self.PlaneType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RefundStatus" EntityType="Self.RefundStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SafetyRating" EntityType="Self.SafetyRating" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TicketType" EntityType="Self.TicketType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AirlinesData_Country" Association="Self.FK_AirlinesData_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="AirlinesData" EntitySet="AirlinesData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Airport_City" Association="Self.FK_Airport_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Airport" EntitySet="Airport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bookings_City" Association="Self.FK_Bookings_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bookings_City1" Association="Self.FK_Bookings_City1">
+      <End Role="City" EntitySet="City" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bookings_Passenger" Association="Self.FK_Bookings_Passenger">
+      <End Role="Passenger" EntitySet="Passenger" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fleet_AirlinesData" Association="Self.FK_Fleet_AirlinesData">
+      <End Role="AirlinesData" EntitySet="AirlinesData" />
+      <End Role="Fleet" EntitySet="Fleet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FlightSchedule_Airport" Association="Self.FK_FlightSchedule_Airport">
+      <End Role="Airport" EntitySet="Airport" />
+      <End Role="FlightSchedule" EntitySet="FlightSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FlightSchedule_Airport1" Association="Self.FK_FlightSchedule_Airport1">
+      <End Role="Airport" EntitySet="Airport" />
+      <End Role="FlightSchedule" EntitySet="FlightSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FlightSchedule_FlightSchedule" Association="Self.FK_FlightSchedule_FlightSchedule">
+      <End Role="FlightSchedule" EntitySet="FlightSchedule" />
+      <End Role="FlightSchedule1" EntitySet="FlightSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FlightStatus_CheckInOptions" Association="Self.FK_FlightStatus_CheckInOptions">
+      <End Role="CheckInOptions" EntitySet="CheckInOptions" />
+      <End Role="FlightStatus" EntitySet="FlightStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket_Passenger" Association="Self.FK_Ticket_Passenger">
+      <End Role="Passenger" EntitySet="Passenger" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket_PaymentMethod" Association="Self.FK_Ticket_PaymentMethod">
+      <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket_PaymentType" Association="Self.FK_Ticket_PaymentType">
+      <End Role="PaymentType" EntitySet="PaymentType" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket_RefundStatus" Association="Self.FK_Ticket_RefundStatus">
+      <End Role="RefundStatus" EntitySet="RefundStatus" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket_TicketType" Association="Self.FK_Ticket_TicketType">
+      <End Role="TicketType" EntitySet="TicketType" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

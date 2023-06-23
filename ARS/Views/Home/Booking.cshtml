@@ -1,0 +1,97 @@
+﻿@model ARS.Model.Booking
+@{
+    ViewBag.Title = "Booking";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<!-- Header Start -->
+<div class="container-fluid page-header">
+    <div class="container">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+            <h3 class="display-4 text-white text-uppercase">Book Your Flight</h3>
+            <div class="d-inline-flex text-white">
+                <p class="m-0 text-uppercase"> @Html.ActionLink("Home", "Index", "Home", null, new { @class = "text-white" })</p>
+                <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                <p class="m-0 text-uppercase">Book Your Flight</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+<!-- Contact Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mb-3 pb-3">
+            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Booking</h6>
+            <h1>Book Your Flight Now</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="contact-form bg-white" style="padding: 30px;">
+                    <div id="success"></div>
+                    @using (Html.BeginForm("Booking", "Home", FormMethod.Post, new { id = "BookingForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                <div class="form-row">
+                    <div class="control-group col-sm-6">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control p-4", id = "name", placeholder = "Your Name", data_validation_required_message = "Please enter your name" })
+                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "help-block text-danger" })
+                        <br />
+                    </div>
+                    <br />
+                    <div class="control-group col-sm-6">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control p-4", id = "email", placeholder = "Email", data_validation_required_message = "Please enter your Email" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "help-block text-danger" })
+                        <br />
+                    </div> <br />
+                </div>
+
+                        <div class="form-row">
+                            <div class="control-group col-sm-6">
+                                @Html.TextBoxFor(m => m.CNIC, new { @class = "form-control p-4", id = "Cnic", placeholder = "CNIC", data_validation_required_message = "Please enter CNIC number" })
+                                @Html.ValidationMessageFor(m => m.CNIC, "", new { @class = "help-block text-danger" })
+                                <br />
+                            </div>
+                            <br />
+
+                            <div class="control-group col-sm-6">
+                                @Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control p-4", id = "MobileNo", placeholder = "MobileNo", data_validation_required_message = "Please enter mobile number" })
+                                @Html.ValidationMessageFor(m => m.MobileNo, "", new { @class = "help-block text-danger" })
+                                <br />
+                            </div>
+                            <br />
+                        </div>
+
+                        <div class="control-group">
+                            @Html.DropDownListFor(m => m.Origin, Enum.GetValues(typeof(ARS.Model.Origin)).Cast<ARS.Model.Origin>().Select(e => new SelectListItem { Text = e.ToString(), Value = e.ToString() }), "Select Origin", new { @class = "custom-select", id = "origin", data_validation_required_message = "Please enter your Origin" })
+                            @Html.ValidationMessageFor(m => m.Origin, "", new { @class = "help-block text-danger" })
+
+                        </div>
+                        <br />
+                        <div class="control-group">
+                            @Html.DropDownListFor(m => m.Destination, Enum.GetValues(typeof(ARS.Model.Destination)).Cast<ARS.Model.Destination>().Select(e => new SelectListItem { Text = e.ToString(), Value = e.ToString() }), "Select Destination", new { @class = "custom-select", id = "destination", data_validation_required_message = "Please enter your Destination" })
+                            @Html.ValidationMessageFor(m => m.Destination, "", new { @class = "help-block text-danger" })
+
+                        </div>
+                        <br />
+                        <div class="control-group">
+                            @Html.TextBoxFor(m => m.Date, new { @type = "date", @class = "form-control p-4", id = "date", placeholder = "Select Date", data_validation_required_message = "Please select a Date" })
+                            @Html.ValidationMessageFor(m => m.Date, "", new { @class = "help-block text-danger" })
+
+                        </div>
+                        <br />
+                        <div class="text-center">
+                            <button class="btn btn-primary py-3 px-4" type="submit" id="sendMessageButton">Book Now</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    
+</script>

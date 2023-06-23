@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ARSModelStoreContainer" CdmEntityContainer="ARSEntities1">
+    <EntitySetMapping Name="AdminUserLogins">
+      <EntityTypeMapping TypeName="ARSModel.AdminUserLogin">
+        <MappingFragment StoreEntitySet="AdminUserLogin">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AirlineRoutes">
+      <EntityTypeMapping TypeName="ARSModel.AirlineRoute">
+        <MappingFragment StoreEntitySet="AirlineRoute">
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+          <ScalarProperty Name="DepartureAirportId" ColumnName="DepartureAirportId" />
+          <ScalarProperty Name="DepartureTime" ColumnName="DepartureTime" />
+          <ScalarProperty Name="ArrivalAirportId" ColumnName="ArrivalAirportId" />
+          <ScalarProperty Name="ArrivalTime" ColumnName="ArrivalTime" />
+          <ScalarProperty Name="DistanceInKm" ColumnName="DistanceInKm" />
+          <ScalarProperty Name="PlaneId" ColumnName="PlaneId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AirlinesDatas">
+      <EntityTypeMapping TypeName="ARSModel.AirlinesData">
+        <MappingFragment StoreEntitySet="AirlinesData">
+          <ScalarProperty Name="AirlineId" ColumnName="AirlineId" />
+          <ScalarProperty Name="AirlineName" ColumnName="AirlineName" />
+          <ScalarProperty Name="IATA" ColumnName="IATA" />
+          <ScalarProperty Name="ICAO" ColumnName="ICAO" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="OfficialEmail" ColumnName="OfficialEmail" />
+          <ScalarProperty Name="OfficialNo" ColumnName="OfficialNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Airports">
+      <EntityTypeMapping TypeName="ARSModel.Airport">
+        <MappingFragment StoreEntitySet="Airport">
+          <ScalarProperty Name="AirportId" ColumnName="AirportId" />
+          <ScalarProperty Name="AirportName" ColumnName="AirportName" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="ARSModel.Booking">
+        <MappingFragment StoreEntitySet="Bookings">
+          <ScalarProperty Name="BookingId" ColumnName="BookingId" />
+          <ScalarProperty Name="PlaneId" ColumnName="PlaneId" />
+          <ScalarProperty Name="OriginId" ColumnName="OriginId" />
+          <ScalarProperty Name="DestinatinId" ColumnName="DestinatinId" />
+          <ScalarProperty Name="NoOfPassengers" ColumnName="NoOfPassengers" />
+          <ScalarProperty Name="PassengerId" ColumnName="PassengerId" />
+          <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+          <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CheckInOptions">
+      <EntityTypeMapping TypeName="ARSModel.CheckInOption">
+        <MappingFragment StoreEntitySet="CheckInOptions">
+          <ScalarProperty Name="CheckInOptionId" ColumnName="CheckInOptionId" />
+          <ScalarProperty Name="OptionName" ColumnName="OptionName" />
+          <ScalarProperty Name="OptionCode" ColumnName="OptionCode" />
+          <ScalarProperty Name="OptionAvailability" ColumnName="OptionAvailability" />
+          <ScalarProperty Name="OptionFee" ColumnName="OptionFee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="ARSModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="ARSModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fleets">
+      <EntityTypeMapping TypeName="ARSModel.Fleet">
+        <MappingFragment StoreEntitySet="Fleet">
+          <ScalarProperty Name="FleetId" ColumnName="FleetId" />
+          <ScalarProperty Name="AirlineId" ColumnName="AirlineId" />
+          <ScalarProperty Name="FleetSize" ColumnName="FleetSize" />
+          <ScalarProperty Name="Pilots" ColumnName="Pilots" />
+          <ScalarProperty Name="CabinCrew" ColumnName="CabinCrew" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FlightSchedules">
+      <EntityTypeMapping TypeName="ARSModel.FlightSchedule">
+        <MappingFragment StoreEntitySet="FlightSchedule">
+          <ScalarProperty Name="FlightScheduleId" ColumnName="FlightScheduleId" />
+          <ScalarProperty Name="PlaneId" ColumnName="PlaneId" />
+          <ScalarProperty Name="ArrivalAirportId" ColumnName="ArrivalAirportId" />
+          <ScalarProperty Name="DepartureAirportId" ColumnName="DepartureAirportId" />
+          <ScalarProperty Name="DateTiming" ColumnName="DateTiming" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FlightStatus">
+      <EntityTypeMapping TypeName="ARSModel.FlightStatu">
+        <MappingFragment StoreEntitySet="FlightStatus">
+          <ScalarProperty Name="FlightStatusID" ColumnName="FlightStatusID" />
+          <ScalarProperty Name="PlaneId" ColumnName="PlaneId" />
+          <ScalarProperty Name="DepartureAirportId" ColumnName="DepartureAirportId" />
+          <ScalarProperty Name="ArrivalAirportId" ColumnName="ArrivalAirportId" />
+          <ScalarProperty Name="ScheduledDepartureTime" ColumnName="ScheduledDepartureTime" />
+          <ScalarProperty Name="ScheduledArrivalTime" ColumnName="ScheduledArrivalTime" />
+          <ScalarProperty Name="ActualDepartureTime" ColumnName="ActualDepartureTime" />
+          <ScalarProperty Name="ActualArrivalTime" ColumnName="ActualArrivalTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="GateNo" ColumnName="GateNo" />
+          <ScalarProperty Name="Terminal" ColumnName="Terminal" />
+          <ScalarProperty Name="BaggageAllowance" ColumnName="BaggageAllowance" />
+          <ScalarProperty Name="CheckInOptionId" ColumnName="CheckInOptionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passengers">
+      <EntityTypeMapping TypeName="ARSModel.Passenger">
+        <MappingFragment StoreEntitySet="Passenger">
+          <ScalarProperty Name="PassengerId" ColumnName="PassengerId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentMethods">
+      <EntityTypeMapping TypeName="ARSModel.PaymentMethod">
+        <MappingFragment StoreEntitySet="PaymentMethod">
+          <ScalarProperty Name="PaymentMethodId" ColumnName="PaymentMethodId" />
+          <ScalarProperty Name="PaymentMethod1" ColumnName="PaymentMethod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentTypes">
+      <EntityTypeMapping TypeName="ARSModel.PaymentType">
+        <MappingFragment StoreEntitySet="PaymentType">
+          <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
+          <ScalarProperty Name="PaymentType1" ColumnName="PaymentType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Planes">
+      <EntityTypeMapping TypeName="ARSModel.Plane">
+        <MappingFragment StoreEntitySet="Planes">
+          <ScalarProperty Name="PlaneId" ColumnName="PlaneId" />
+          <ScalarProperty Name="PlaneName" ColumnName="PlaneName" />
+          <ScalarProperty Name="AirlineId" ColumnName="AirlineId" />
+          <ScalarProperty Name="PlaneTypeId" ColumnName="PlaneTypeId" />
+          <ScalarProperty Name="PlaneRegistrationNo" ColumnName="PlaneRegistrationNo" />
+          <ScalarProperty Name="CurrentStatus" ColumnName="CurrentStatus" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlaneTypes">
+      <EntityTypeMapping TypeName="ARSModel.PlaneType">
+        <MappingFragment StoreEntitySet="PlaneType">
+          <ScalarProperty Name="PlaneTypeId" ColumnName="PlaneTypeId" />
+          <ScalarProperty Name="PlaneType1" ColumnName="PlaneType" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="MaximumCargo" ColumnName="MaximumCargo" />
+          <ScalarProperty Name="MaximumSeats" ColumnName="MaximumSeats" />
+          <ScalarProperty Name="Range" ColumnName="Range" />
+          <ScalarProperty Name="EngineType" ColumnName="EngineType" />
+          <ScalarProperty Name="SafetyFeatures" ColumnName="SafetyFeatures" />
+          <ScalarProperty Name="Certification" ColumnName="Certification" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefundStatus">
+      <EntityTypeMapping TypeName="ARSModel.RefundStatu">
+        <MappingFragment StoreEntitySet="RefundStatus">
+          <ScalarProperty Name="RefundStatusId" ColumnName="RefundStatusId" />
+          <ScalarProperty Name="RefundStatus" ColumnName="RefundStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SafetyRatings">
+      <EntityTypeMapping TypeName="ARSModel.SafetyRating">
+        <MappingFragment StoreEntitySet="SafetyRating">
+          <ScalarProperty Name="SafetyId" ColumnName="SafetyId" />
+          <ScalarProperty Name="AirlineId" ColumnName="AirlineId" />
+          <ScalarProperty Name="SafetyRating1" ColumnName="SafetyRating" />
+          <ScalarProperty Name="IncidentCount" ColumnName="IncidentCount" />
+          <ScalarProperty Name="Fatalities" ColumnName="Fatalities" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ARSModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tickets">
+      <EntityTypeMapping TypeName="ARSModel.Ticket">
+        <MappingFragment StoreEntitySet="Ticket">
+          <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+          <ScalarProperty Name="PassengerId" ColumnName="PassengerId" />
+          <ScalarProperty Name="TicketTypeId" ColumnName="TicketTypeId" />
+          <ScalarProperty Name="SeatNo" ColumnName="SeatNo" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
+          <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
+          <ScalarProperty Name="PaymentMethodId" ColumnName="PaymentMethodId" />
+          <ScalarProperty Name="OrderTotal" ColumnName="OrderTotal" />
+          <ScalarProperty Name="DiscountCode" ColumnName="DiscountCode" />
+          <ScalarProperty Name="RefundStatusId" ColumnName="RefundStatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketTypes">
+      <EntityTypeMapping TypeName="ARSModel.TicketType">
+        <MappingFragment StoreEntitySet="TicketType">
+          <ScalarProperty Name="TicketTypeId" ColumnName="TicketTypeId" />
+          <ScalarProperty Name="TicketType1" ColumnName="TicketType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ARSModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="ARSModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="ARSModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="ARSModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ARSModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="ARSModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ARSModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ARSModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ARSModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

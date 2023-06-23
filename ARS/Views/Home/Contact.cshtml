@@ -1,0 +1,74 @@
+﻿@model ARS.Model.Contact
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+<!-- Header Start -->
+<div class="container-fluid page-header">
+    <div class="container">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+            <h3 class="display-4 text-white text-uppercase">Contact</h3>
+            <div class="d-inline-flex text-white">
+                <p class="m-0 text-uppercase"> @Html.ActionLink("Home", "Index", "Home", null, new { @class = "text-white" }) </p>
+                <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                <p class="m-0 text-uppercase">Contact</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+<!-- Contact Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mb-3 pb-3">
+            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Contact</h6>
+            <h1>Contact For Any Query</h1>
+        </div>
+        <div id="loginFormContainer">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form bg-white" style="padding: 30px;">
+                        
+                        @using (Html.BeginForm("Contact", "Home", FormMethod.Post, new { id = "ContactForm" }))
+
+                        {
+
+                            @Html.AntiForgeryToken()
+                            <div id="success"></div>
+                            <div class="form-row">
+                                <div class="control-group col-sm-6">
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control p-4", Type = "text", id = "Fname", placeholder = "Name",  data_validation_required_message = "Please enter your name" })
+                                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "help-block text-danger" })
+
+                                </div>
+                                <div class="control-group col-sm-6">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control p-4", Type = "email", id = "Email", placeholder = "Email", data_validation_required_message = "Please enter your email" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "help-block text-danger" })
+                                    <br />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                @Html.TextBoxFor(m => m.Subject, new { @class = "form-control p-4", Type = "text", id = "Subject", placeholder = "Subject", data_validation_required_message = "Please enter your subject" })
+                                @Html.ValidationMessageFor(m => m.Subject, "", new { @class = "help-block text-danger" })
+                                <br />
+                            </div>
+                            <div class="control-group">
+
+                                @Html.TextAreaFor(m => m.Message, new { @class = "form-control p-4", Type = "text", id = "Message", placeholder = "Message",  data_validation_required_message = "Please enter your message" })
+                                @Html.ValidationMessageFor(m => m.Message, "", new { @class = "help-block text-danger" })
+                                <br />
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-primary py-3 px-4" type="submit" id="csendMessageButton">Send Message</button>
+                            </div>
+                        }
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+               
+          
+       
+<!-- Contact End -->

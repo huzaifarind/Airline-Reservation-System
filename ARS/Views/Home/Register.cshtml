@@ -1,0 +1,104 @@
+﻿@model ARS.Model.Register
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+<!-- Header Start -->
+<div class="container-fluid page-header">
+    <div class="container">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+            <h3 class="display-4 text-white text-uppercase">Register</h3>
+            <div class="d-inline-flex text-white">
+                <p class="m-0 text-uppercase"><a class="text-white" href="index.html">Home</a></p>
+                <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                <p class="m-0 text-uppercase">Register</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+<!-- Contact Start -->
+{
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true, "", new { @class = "text-danger" }) <!-- Add this line for error summary -->
+<!-- Your form fields and validation messages -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mb-3 pb-3">
+
+            <br>
+            <h3>Already Have An Account <span>@Html.ActionLink("Login Here", "Login", "Home")  </span>   </h3>
+            <br>
+            <h1>Sign Up </h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="contact-form bg-white" style="padding: 30px;">
+                    @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" }) <!-- Add this line for error summary -->
+
+                        <div id="success"></div>
+                        <div class="form-row">
+                            <div class="control-group col-sm-6">
+                                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control p-4", placeholder = "First Name", id = "Fname" })
+                                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "help-block text-danger" })
+
+                            </div>
+
+                            <div class="control-group col-sm-6">
+                                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control p-4", id = "lname", placeholder = "Last Name", })
+                                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "help-block text-danger" })
+
+
+                            </div>
+
+                            <div class="control-group col-sm-6">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control p-4", Type = "email", id = "email", placeholder = "Email" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "help-block text-danger" })
+
+                            </div>
+                            <div class="control-group col-sm-6">
+                                @Html.TextBoxFor(m => m.Password, new { @class = "form-control p-4", Type = "password", id = "password", placeholder = "Password", })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "help-block text-danger" })
+
+                            </div>
+                            <div class="control-group col-sm-6">
+                                @Html.TextBoxFor(m => m.DOB, new { @class = "form-control p-4", id = "dob", placeholder = "Date Of Birth" })
+                                @Html.ValidationMessageFor(m => m.DOB, "", new { @class = "help-block text-danger" })
+
+                            </div>
+                            <div class="control-group col-sm-6">
+                                @Html.TextBoxFor(m => m.Gender, new { @class = "form-control p-4", id = "gender", placeholder = "Gender" })
+                                @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "help-block text-danger" })
+
+
+                            </div>
+                            <div class="control-group col-sm-6">
+                                @Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control p-4", id = "mobileNo", placeholder = "Mobile No", })
+                                @Html.ValidationMessageFor(m => m.MobileNo, "", new { @class = "help-block text-danger" })
+
+                            </div>
+                            <div class="control-group col-sm-6">
+                                @Html.TextBoxFor(m => m.Address, new { @class = "form-control p-4", id = "address", placeholder = "Address", })
+                                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "help-block text-danger" })
+
+
+
+                            </div>
+                            <!-- Repeat for other input fields -->
+                        </div>
+                        <br />
+                        <div class="text-center">
+                            <button class="btn btn-primary py-3 px-4" type="submit">Sign Up</button>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact End -->
